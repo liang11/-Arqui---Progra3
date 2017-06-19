@@ -22,20 +22,6 @@ int main(){
     printf("Ingrese el numero de columnas: \n");
     scanf("%d", &columnas);
 
-    printf("\n");
-
-    printf("Start your timers\n");
-
-    /* start the time and run for 10 seconds */
-    start_timer(10);
-
-    int i = 0;
-    /* do some work */
-    for(i = 0; i < 1000; i++){}
-
-    /* Check and display current time */
-    printf("Curent time: %d\n", current_time());
-
 
 /*int i,j;
 
