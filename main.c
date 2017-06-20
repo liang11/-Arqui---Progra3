@@ -7,6 +7,7 @@ void sumaMatriz(int **matrizA,int **matrizB,int filas, int columnas);
 void escalarXmatriz(int **matrizA,int escalar,int filas, int columnas);
 void transpuesta(int **matriz,int filas,int columnas);
 void mulMatriz(int **matrizA,int filasA,int columnasA,int **matrizB,int filasB,int columnasB);
+void guardarMatriz(char **matriz,int filas,int columnas,char nombre);
 
 
 int main(){
@@ -23,7 +24,7 @@ int main(){
     scanf("%d", &columnas);
 
 
-/*int i,j;
+    int i,j;
 
     char **matriz=(char **)malloc(filas*sizeof(char *));
     for(i=0;i<filas;i++){
@@ -63,13 +64,15 @@ int main(){
 
     mulMatriz(matriz,filas,columnas,matriz,filas,columnas);*/
 
-    FILE * fPointer;
+    /*FILE * fPointer;
 
     fPointer = fopen("hola.txt","w");
 
     fprintf(fPointer,"Esto lo escribi yo");
 
-    fclose(fPointer);
+    fclose(fPointer);*/
+    char nombre = 'Rob.txt';
+    guardarMatriz(matriz,filas,columnas,nombre);
 
     return 0;
 }
@@ -128,4 +131,23 @@ void mulMatriz(int **matrizA,int filasA,int columnasA,int **matrizB,int filasB,i
         }
         printf("\n");
     }
+}
+
+void guardarMatriz(char **matriz,int filas,int columnas,char nombre){
+    FILE * file;
+
+    file = fopen("hola.txt","w");
+
+    int i,j;
+    for(i = 0;i<filas;i++){
+        for(j = 0;j<columnas;j++){
+            //printf("%f \t",matriz[j][i]);
+             fprintf(file,"%d ",matriz[i][j]);
+        }
+        fprintf(file,"\n");
+    }
+
+    //fprintf(fPointer,"Esto lo escribi yo");
+
+    fclose(file);
 }
